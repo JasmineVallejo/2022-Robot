@@ -7,7 +7,11 @@ import frc.robot.Constants;
 public class indexer extends SubsystemBase {
   WPI_VictorSPX motor = new WPI_VictorSPX(Constants.indexMotor);
   
+  
+  public void move(double speed){
+    motor.set(speed);
 
+  }
   public indexer() {
 
   }
