@@ -15,7 +15,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-public class RobotContainer {
+public class RobotContainer 
+{
 
   private final shooter shooterSub = new shooter();
   private final drive driveSub = new drive();
@@ -26,7 +27,8 @@ public class RobotContainer {
   private final shooterCommand shooterMove = new shooterCommand(shooterSub, Constants.shooterSpeed);
   private final cascadeCommand cascadeMoveUp = new cascadeCommand( cascadeSub, Constants.cascadeSpeed);
   private final cascadeCommand cascadeMoveDown = new cascadeCommand(cascadeSub, -1 * Constants.cascadeSpeed);
-  private final indexerCommand indexerMove = new indexerCommand(indexerSub, Constants.indexerSpeed);
+  private final indexerCommand indexerIn = new indexerCommand(indexerSub, Constants.indexerSpeed);
+  private final indexerCommand indexerOut = new indexerCommand(indexerSub, -1 * Constants.indexerSpeed);
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmSpeed);
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmSpeed);
 
@@ -43,19 +45,21 @@ public class RobotContainer {
   {
     driveSub.setDefaultCommand(move);
 
-    JoystickButton shooter = new JoystickButton(jasmine, 1);
+    JoystickButton shooter = new JoystickButton(jasmine, 6);
     shooter.whileHeld(shooterMove);
 
-    JoystickButton cascadeUp = new JoystickButton(jasmine, 5);
+    JoystickButton cascadeUp = new JoystickButton(jasmine, 4);
     cascadeUp.whileHeld(cascadeMoveUp);
-    JoystickButton cascadeDown = new JoystickButton(jasmine,6);
+    JoystickButton cascadeDown = new JoystickButton(jasmine,3);
     cascadeDown.whileHeld(cascadeMoveDown);
 
-    JoystickButton indexer = new JoystickButton(jasmine, 3);
-    indexer.whileHeld(indexerMove);
+    JoystickButton indexerI = new JoystickButton(jasmine, 5);
+    indexerI.whileHeld(indexerIn);
+    JoystickButton indexerO = new JoystickButton(jasmine, 7);
+    indexerO.whileHeld(indexerOut);
     
 
-    JoystickButton rotaryForward = new JoystickButton(jasmine, 4);
+    JoystickButton rotaryForward = new JoystickButton(jasmine, 1);
     rotaryForward.whileHeld(rotateForward);
 
     JoystickButton rotaryBackward = new JoystickButton(jasmine, 2);

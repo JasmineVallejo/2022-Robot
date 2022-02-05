@@ -18,7 +18,7 @@ indexMotor = 17;
 
 public static double
  // ----------------------------------- Falcon 500 Speeds ----------------------------------- //
-shooterSpeed = -1, cascadeSpeed = .2, driveSpeed =.4, indexerSpeed = .9, rotaryArmSpeed = .2;
+shooterSpeed = -1, cascadeSpeed = .4, driveSpeed =.6, indexerSpeed = .6, rotaryArmSpeed = .3;
 
 
 }
