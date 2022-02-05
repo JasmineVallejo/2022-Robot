@@ -33,7 +33,7 @@ public class rotaryArmsCommand extends CommandBase {
     rotaryArmsSub.rotateArms(0);
   }
 
-  // Returns true when the command should end.
+  
   @Override
   public boolean isFinished() {
     return false;
