@@ -37,6 +37,8 @@ public class RobotContainer {
 
   public RobotContainer() {
 
+    driveSub.setDefaultCommand(move);
+
     JoystickButton shooter = new JoystickButton(jasmine, 1);
     shooter.whenPressed(shooterMove);
 
