@@ -17,6 +17,9 @@ shooterSpeed = -.2, cascadeSpeed = .2, driveSpeed =.4, indexerSpeed = .2, rotary
 // ----------------------------------- Vision Tracking -------------------------------------
 hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 15,
 // ----------------------------------- PIDS for shooter -------------------------------------
-shooterKP = .1, shooterKI = .1, shooterKD = .1;
+shooterKP = .1, shooterKI = .1, shooterKD = .1,
 //----------------------------------- Buttons -----------------------------------------------
+
+//----------------------------------- Encoder -----------------------------------------------
+kEncoderDistancePerPulse = ((Math.PI * .152)/4096);
 }
