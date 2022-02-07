@@ -2,6 +2,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.commands.aimRobotCommand;
 import frc.robot.commands.cascadeCommand;
 import frc.robot.commands.indexerCommand;
 import frc.robot.commands.rotaryArmsCommand;
@@ -37,15 +38,18 @@ public class RobotContainer
   private final indexerCommand indexerOut = new indexerCommand(indexerSub, -.5 * Constants.indexerSpeed);
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmSpeed);
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmSpeed);
+  private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
 
-  Joystick jasmine = new Joystick(0);
+  Joystick jasmine = new Joystick(Constants.jasmine);
   Joystick ish = new Joystick(Constants.ish);
 
-  RunCommand move = new RunCommand(() -> driveSub.move(Constants.driveSpeed*jasmine.getRawAxis(1),
-  Constants.driveSpeed*jasmine.getRawAxis(5)),driveSub);
 
   RunCommand move2 = new RunCommand(() -> driveSub.move(Constants.driveSpeed*ish.getRawAxis(1),
   Constants.driveSpeed*ish.getRawAxis(5)),driveSub);
+
+  RunCommand move = new RunCommand(() -> driveSub.move(Constants.driveSpeed*jasmine.getRawAxis(Constants.leftDriveAxis),
+  Constants.driveSpeed*jasmine.getRawAxis(Constants.rightDriveAxis)),driveSub);
+
   
   /*
   RunCommand moverotateFoward = new RunCommand(() -> rotarySub.rotateArms(Constants.rotaryArmSpeed*jasmine.getRawAxis(3)));
@@ -93,6 +97,9 @@ public class RobotContainer
 
     JoystickButton rotaryBackward = new JoystickButton(jasmine, Constants.rotaryBackwardButton);
     rotaryBackward.whileHeld(rotateBackward);
+
+    JoystickButton aimingRobot = new JoystickButton(jasmine, Constants.aimRobotButton);
+    aimingRobot.whileHeld(aimRobot);
     configureButtonBindings();
 
   }
