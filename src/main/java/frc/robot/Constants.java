@@ -17,8 +17,11 @@ rightFront = 10, rightRear = 11, leftFront = 13, leftRear = 12, shooterMotor = 1
 indexMotor = 17,
 
 //----------------------------------- Buttons -----------------------------------------------
-rotaryForwardButton = 1, rotaryBackwardButton = 2, cascadeDownButton = 3, cascadeUpButton = 4, 
-IndexerInButton = 5, IndexerOutButton = 7, shooterButton = 6;
+rotaryForwardButton = 1, rotaryBackwardButton = 2, 
+cascadeDownButton = 3, cascadeUpButton = 4, 
+IndexerInButton = 5, IndexerOutButton = 7, IndexerOut2Button = 6, 
+shooterButton = 6, shooter9 = 4, shooter8 = 2, shooter7 = 1, shooter6 = 3;
+
 
 
 public static double
@@ -34,7 +37,7 @@ kEncoderDistancePerPulse = ((Math.PI * .152)/4096),
 
 
  // ----------------------------------- Falcon 500 Speeds ----------------------------------- //
-shooterSpeed = -1, cascadeSpeed = .4, driveSpeed =.6, indexerSpeed = .6, rotaryArmSpeed = .3;
+shooterSpeed = -1, cascadeSpeed = .4, driveSpeed =.6, indexerSpeed = .7, rotaryArmSpeed = .3;
 
 
 }
