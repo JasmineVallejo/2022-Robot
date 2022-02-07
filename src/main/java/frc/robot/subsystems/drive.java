@@ -23,21 +23,19 @@ public class drive extends SubsystemBase {
   MotorControllerGroup leftDrive = new MotorControllerGroup(leftFront, leftRear);
 
   DifferentialDrive drive = new DifferentialDrive(leftDrive, rightDrive);
-  
-
-  double x, y, a, distanceToTarget;
-  double leftPosition, rightPosition;
 
   public void move(double leftSpeed,double rightSpeed){
-  drive.tankDrive( -1 *leftSpeed,rightSpeed);
+    drive.tankDrive( -1 *leftSpeed,rightSpeed);
+  
+    }
+  
+  double x, y, a, distanceToTarget;
+  double leftPosition, rightPosition, leftEncoderInFeet, rightEncoderInFeet;
 
-  }
   public drive() {
   leftPosition = leftFront.getSelectedSensorPosition(0);
   rightPosition = rightFront.getSelectedSensorPosition(0);
   }
-
-double leftEncoderInFeet, rightEncoderInFeet, leftTraveled, rightTraveled;
 
 
   @Override
