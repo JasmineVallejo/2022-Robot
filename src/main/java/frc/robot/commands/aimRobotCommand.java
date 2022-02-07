@@ -8,34 +8,51 @@ import frc.robot.subsystems.drive;
 
 public class aimRobotCommand extends CommandBase {
   drive drive;
+
   double proportionAim, integralAim, derivativeAim, errorAim, oldErrorAim, speedAim,
   proptionDistance, integralDistance, derivativeDistance, errorDistance, oldErrorDistance, speedDistance,
-  pastTime;
+  pastTime, ta, td;
   
-  public aimRobotCommand(drive driveSub) {
+  public aimRobotCommand(drive driveSub, double targetDistance) {
     drive = driveSub;
+    td = targetDistance;
     addRequirements(driveSub);
   }
 
   @Override
   public void initialize() {
     oldErrorAim = 0;
+    integralAim = 0;
+    integralDistance = 0;
     pastTime = Timer.getFPGATimestamp();
   }
 
   @Override
   public void execute() {
+
   errorAim = -1 * drive.angleOff();
-  proportionAim = errorAim * Constants.shooterKP;
-  double dx = errorAim - oldErrorAim;
+  proportionAim = errorAim * Constants.aimKP;
+
+  errorDistance = td -  drive.currentDistance();
+  proptionDistance = errorDistance * Constants.distanceKP;
+
   double dt = Timer.getFPGATimestamp() - pastTime;
   pastTime = Timer.getFPGATimestamp();
-  integralAim =+ (errorAim * dt) * Constants.shooterKI;
+
+  integralAim =+ (errorAim * dt) * Constants.aimKI;
+  integralDistance=+ (errorDistance * dt) * Constants.distanceKI;
+
+  double dxAim = errorAim - oldErrorAim;//
+  double dxDistance = errorDistance - oldErrorDistance;//
+  derivativeAim = ( dxAim / dt) * Constants.aimKD;
+  derivativeDistance = (dxDistance / dt) * Constants.distanceKD;
   oldErrorAim = errorAim;
-  derivativeAim = ( dx / dt) * Constants.shooterKD;
+  oldErrorDistance = errorDistance;
+
   speedAim = proportionAim + integralAim + derivativeAim;
   speedDistance = proptionDistance + integralDistance + derivativeDistance;
   drive.move((-1 * speedAim) + speedDistance, speedAim + speedDistance);
+
   SmartDashboard.putNumber("Aim Error", errorAim);
   SmartDashboard.putNumber("Aim speed", speedAim);
   SmartDashboard.putNumber("Distance Error", errorDistance);

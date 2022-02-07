@@ -28,6 +28,8 @@ public class drive extends SubsystemBase {
     drive.tankDrive( -1 *leftSpeed,rightSpeed);
   
     }
+
+  
   
   double x, y, a, distanceToTarget;
   double leftPosition, rightPosition, leftEncoderInFeet, rightEncoderInFeet;
@@ -60,6 +62,7 @@ public class drive extends SubsystemBase {
   double heightFromTarget = Constants.hubHeight - Constants.limelightHeight;
   double theta = Math.toRadians(Constants.bottomAngle + y);
   distanceToTarget = heightFromTarget / (Math.tan(theta));
+  SmartDashboard.putNumber("distanceToTarget", distanceToTarget);
 
   }
   public double angleOff(){
@@ -74,7 +77,7 @@ public class drive extends SubsystemBase {
     return a;
   }
 
-  public double targetDistance(){
+  public double currentDistance(){
     return distanceToTarget;
   }
 

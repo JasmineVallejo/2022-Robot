@@ -25,12 +25,12 @@ public static double
 
 
 // ----------------------------------- Vision Tracking -------------------------------------
-hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 15,
+hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 15, desiredDistance = 6,
 // ----------------------------------- PIDS for shooter -------------------------------------
-shooterKP = .1, shooterKI = .1, shooterKD = .1,
+aimKP = .1, aimKI = .1, aimKD = .1, distanceKP = .1, distanceKI =.01, distanceKD = .01, 
 
 //----------------------------------- Encoder -----------------------------------------------
-kEncoderDistancePerPulse = ((Math.PI * .152)/4096),
+kEncoderDistancePerPulse = ((Math.PI * 6)/24576),
 
 
  // ----------------------------------- Falcon 500 Speeds ----------------------------------- //
