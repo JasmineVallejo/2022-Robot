@@ -17,8 +17,11 @@ rightFront = 10, rightRear = 11, leftFront = 13, leftRear = 12, shooterMotor = 1
 indexMotor = 20,
 
 //----------------------------------- Buttons -----------------------------------------------
+IndexerOut2Button = 6, 
+shooter9 = 4, shooter8 = 2, shooter7 = 1, shooter6 = 3,
+
 rotaryForwardButton = 1, rotaryBackwardButton = 2, cascadeDownButton = 3, cascadeUpButton = 4, 
-IndexerInButton = 5, IndexerOutButton = 7, shooterButton = 6, leftDriveAxis = 1, rightDriveAxis = 5, aimRobotButton = 8;
+IndexerInButton = 5, IndexerOutButton = 7, shooterButton = 6, leftDriveAxis = 1, rightDriveAxis = 5, aimRobotButton = 14;
 
 
 public static double
@@ -27,14 +30,14 @@ public static double
 // ----------------------------------- Vision Tracking -------------------------------------
 hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 15, targetDistance = 10,
 // ----------------------------------- PIDS for shooter -------------------------------------
-aimKP = .1, aimKI = 0, aimKD = 0, distanceKP = .1, distanceKI = 0, distanceKD = 0, 
+aimKP = .01, aimKI = 0, aimKD = 0, distanceKP = .01, distanceKI = 0, distanceKD = 0, 
 
 //----------------------------------- Encoder -----------------------------------------------
 kEncoderDistancePerPulse = ((Math.PI * 6)/24576),
 
 
  // ----------------------------------- Falcon 500 Speeds ----------------------------------- //
-shooterSpeed = -1, cascadeSpeed = .4, driveSpeed =.6, indexerSpeed = .6, rotaryArmSpeed = .3;
+shooterSpeed = -1, cascadeSpeed = .4, driveSpeed =.6, indexerSpeed = .7, rotaryArmSpeed = .3;
 
 
 }
