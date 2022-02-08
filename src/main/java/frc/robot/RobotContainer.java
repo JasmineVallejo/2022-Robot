@@ -44,8 +44,8 @@ public class RobotContainer
   Joystick ish = new Joystick(Constants.ish);
 
 
-  RunCommand move2 = new RunCommand(() -> driveSub.move(Constants.driveSpeed*ish.getRawAxis(1),
-  Constants.driveSpeed*ish.getRawAxis(5)),driveSub);
+  /*RunCommand move2 = new RunCommand(() -> driveSub.move(Constants.driveSpeed*ish.getRawAxis(1),
+  Constants.driveSpeed*ish.getRawAxis(5)),driveSub);*/
 
   RunCommand move = new RunCommand(() -> driveSub.move(Constants.driveSpeed*jasmine.getRawAxis(Constants.leftDriveAxis),
   Constants.driveSpeed*jasmine.getRawAxis(Constants.rightDriveAxis)),driveSub);
@@ -58,7 +58,7 @@ public class RobotContainer
   public RobotContainer() 
   {
     driveSub.setDefaultCommand(move);
-    driveSub.setDefaultCommand(move2);
+    //driveSub.setDefaultCommand(move2);
     
     JoystickButton shooter = new JoystickButton(jasmine, Constants.shooterButton);
     shooter.whileHeld(shooterMove);
