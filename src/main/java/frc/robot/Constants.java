@@ -13,8 +13,8 @@ rightFront = 10, rightRear = 11, leftFront = 13, leftRear = 12, shooterMotor = 1
 
 
 
-// --------------------------------------   Victor SPX   -------------------------------------- //
-indexMotor = 17,
+// --------------------------------------   Talon SRX   -------------------------------------- //
+indexMotor = 20,
 
 //----------------------------------- Buttons -----------------------------------------------
 rotaryForwardButton = 1, rotaryBackwardButton = 2, cascadeDownButton = 3, cascadeUpButton = 4, 
