@@ -40,7 +40,7 @@ public class aimRobotCommand extends CommandBase {
   pastTime = Timer.getFPGATimestamp();
 
   integralAim += (errorAim * dt) * Constants.aimKI;
-  integralDistance=+ (errorDistance * dt) * Constants.distanceKI;
+  integralDistance += (errorDistance * dt) * Constants.distanceKI;
 
   double dxAim = errorAim - oldErrorAim;//
   double dxDistance = errorDistance - oldErrorDistance;//

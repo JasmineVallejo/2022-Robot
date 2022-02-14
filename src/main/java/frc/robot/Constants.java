@@ -37,9 +37,12 @@ public static double
 
 
 // ----------------------------------- Vision Tracking -------------------------------------
-hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 15, targetDistance = 10,
+hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 25, targetDistance = 10,
+// ----------------------------------- PIDS for drive -------------------------------------
+aimKP = 0.05, aimKI = 0, aimKD = 0, distanceKP = 0.1, distanceKI = 0.00, distanceKD = 0.01, 
+//aimKP = .09, aimKI = 0.0001, aimKD = 0,
 // ----------------------------------- PIDS for shooter -------------------------------------
-aimKP = .09, aimKI = 0.0001, aimKD = 0, distanceKP = 0, distanceKI = 0, distanceKD = 0, 
+shooterKP = .001,
 
 //----------------------------------- Encoder -----------------------------------------------
 kEncoderDistancePerPulse = ((Math.PI * 6)/24576),
