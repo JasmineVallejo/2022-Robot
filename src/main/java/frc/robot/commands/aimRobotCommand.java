@@ -39,7 +39,7 @@ public class aimRobotCommand extends CommandBase {
   double dt = Timer.getFPGATimestamp() - pastTime;
   pastTime = Timer.getFPGATimestamp();
 
-  integralAim =+ (errorAim * dt) * Constants.aimKI;
+  integralAim += (errorAim * dt) * Constants.aimKI;
   integralDistance=+ (errorDistance * dt) * Constants.distanceKI;
 
   double dxAim = errorAim - oldErrorAim;//
@@ -51,7 +51,7 @@ public class aimRobotCommand extends CommandBase {
 
   speedAim = proportionAim + integralAim + derivativeAim;
   speedDistance = proptionDistance + integralDistance + derivativeDistance;
-  drive.move((-1 * speedAim) + speedDistance, speedAim + speedDistance);
+  drive.move((  speedAim) + speedDistance, -1*speedAim + speedDistance);
 
   SmartDashboard.putNumber("Aim Error", errorAim);
   SmartDashboard.putNumber("Aim speed", speedAim);

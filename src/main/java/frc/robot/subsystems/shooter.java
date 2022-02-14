@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -11,7 +12,9 @@ public class shooter extends SubsystemBase {
     motor.set(speed);
   }
 
-  public shooter() {}
+  public shooter() {
+    motor.setNeutralMode(NeutralMode.Coast);
+  }
 
   @Override
   public void periodic() {

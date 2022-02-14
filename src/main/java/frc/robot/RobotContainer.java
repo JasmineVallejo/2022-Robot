@@ -25,11 +25,14 @@ public class RobotContainer
   private final indexer indexerSub = new indexer();
   private final rotaryArms rotarySub = new rotaryArms();
 
+
+
   private final shooterCommand shooterMove = new shooterCommand(shooterSub, Constants.shooterSpeed);
   private final shooterCommand shooter90 = new shooterCommand(shooterSub, .9 *Constants.shooterSpeed);
   private final shooterCommand shooter80 = new shooterCommand(shooterSub, .8 *Constants.shooterSpeed);
   private final shooterCommand shooter70 = new shooterCommand(shooterSub, .7 *Constants.shooterSpeed);
   private final shooterCommand shooter60 = new shooterCommand(shooterSub, .5 *Constants.shooterSpeed);
+
 
 
   private final cascadeCommand cascadeMoveUp = new cascadeCommand( cascadeSub, Constants.cascadeSpeed);
@@ -38,19 +41,20 @@ public class RobotContainer
   private final indexerCommand indexerOut = new indexerCommand(indexerSub, -.5 * Constants.indexerSpeed);
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmSpeed);
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmSpeed);
-  private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
+
+  //private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
+  
 
   Joystick jasmine = new Joystick(Constants.jasmine);
   Joystick ish = new Joystick(Constants.ish);
 
 
-  /*RunCommand move2 = new RunCommand(() -> driveSub.move(Constants.driveSpeed*ish.getRawAxis(1),
-  Constants.driveSpeed*ish.getRawAxis(5)),driveSub);*/
+  RunCommand move2 = new RunCommand(() -> driveSub.move(Constants.driveSpeed*ish.getRawAxis(1),
+  Constants.driveSpeed*ish.getRawAxis(5)),driveSub);
 
-  RunCommand move = new RunCommand(() -> driveSub.move(Constants.driveSpeed*jasmine.getRawAxis(Constants.leftDriveAxis),
+ RunCommand move = new RunCommand(() -> driveSub.move(Constants.driveSpeed*jasmine.getRawAxis(Constants.leftDriveAxis),
   Constants.driveSpeed*jasmine.getRawAxis(Constants.rightDriveAxis)),driveSub);
 
-  
   /*
   RunCommand moverotateFoward = new RunCommand(() -> rotarySub.rotateArms(Constants.rotaryArmSpeed*jasmine.getRawAxis(3)));
   RunCommand moverotateBackward = new RunCommand(() -> rotarySub.rotateArms(-1 * Constants.rotaryArmSpeed*jasmine.getRawAxis(2)));*/
@@ -62,8 +66,10 @@ public class RobotContainer
     
     JoystickButton shooter = new JoystickButton(jasmine, Constants.shooterButton);
     shooter.whileHeld(shooterMove);
+    /*JoystickButton shooter2 = new JoystickButton(ish, Constants.shooterButton2);
+    shooter2.whileHeld(shooterMove);*/
 
-    JoystickButton shooter9 = new JoystickButton(ish, Constants.shooter9);
+    /*JoystickButton shooter9 = new JoystickButton(ish, Constants.shooter9);
     shooter9.whileHeld(shooter90);
 
     JoystickButton shooter8 = new JoystickButton(ish, Constants.shooter8);
@@ -74,12 +80,21 @@ public class RobotContainer
 
     JoystickButton shooter6 = new JoystickButton(ish, Constants.shooter6);
     shooter6.whileHeld(shooter60);
-
+*/
 
     JoystickButton cascadeUp = new JoystickButton(jasmine, Constants.cascadeUpButton);
     cascadeUp.whileHeld(cascadeMoveUp);
+    JoystickButton cascadeUp2 = new JoystickButton(ish, Constants.cascadeUpButton2);
+    cascadeUp2.whileHeld(cascadeMoveUp);
+
+
+
     JoystickButton cascadeDown = new JoystickButton(jasmine,Constants.cascadeDownButton);
     cascadeDown.whileHeld(cascadeMoveDown);
+    JoystickButton cascadeDown2 = new JoystickButton(ish,Constants.cascadeDownButton2);
+    cascadeDown2.whileHeld(cascadeMoveDown);
+
+
 
     JoystickButton indexerI = new JoystickButton(jasmine, Constants.IndexerInButton);
     indexerI.whileHeld(indexerIn);
@@ -92,14 +107,25 @@ public class RobotContainer
     JoystickButton indexer2O = new JoystickButton(ish, Constants.IndexerOut2Button);
     indexer2O.whileHeld(indexerOut);
     
+
     JoystickButton rotaryForward = new JoystickButton(jasmine, Constants.rotaryForwardButton);
     rotaryForward.whileHeld(rotateForward);
+    JoystickButton rotaryForward2 = new JoystickButton(ish, Constants.rotaryForwardButton2);
+    rotaryForward2.whileHeld(rotateForward);
+
 
     JoystickButton rotaryBackward = new JoystickButton(jasmine, Constants.rotaryBackwardButton);
     rotaryBackward.whileHeld(rotateBackward);
+    JoystickButton rotaryBackward2 = new JoystickButton(ish, Constants.rotaryBackwardButton2);
+    rotaryBackward2.whileHeld(rotateBackward);
 
-    JoystickButton aimingRobot = new JoystickButton(jasmine, Constants.aimRobotButton);
+
+   /* JoystickButton aimingRobot = new JoystickButton(jasmine, Constants.aimRobotButton);
     aimingRobot.whileHeld(aimRobot);
+    JoystickButton aimingRobot2 = new JoystickButton(ish, Constants.aimRobotButton2);
+    aimingRobot2.whileHeld(aimRobot);  */
+
+
     configureButtonBindings();
 
   }
