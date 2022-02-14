@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.networktables.NetworkTable;
@@ -37,6 +38,10 @@ public class drive extends SubsystemBase {
   public drive() {
   leftPosition = leftFront.getSelectedSensorPosition(0);
   rightPosition = rightFront.getSelectedSensorPosition(0);
+  rightFront.setNeutralMode(NeutralMode.Brake);
+  rightRear.setNeutralMode(NeutralMode.Brake);
+  leftFront.setNeutralMode(NeutralMode.Brake);
+  leftRear.setNeutralMode(NeutralMode.Brake);
   }
 
 
