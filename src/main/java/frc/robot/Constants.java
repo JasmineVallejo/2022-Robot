@@ -39,8 +39,8 @@ public static double
 // ----------------------------------- Vision Tracking -------------------------------------
 hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 25, targetDistance = 10,
 // ----------------------------------- PIDS for drive -------------------------------------
-aimKP = 0.05, aimKI = 0, aimKD = 0, distanceKP = 0.1, distanceKI = 0.00, distanceKD = 0.01, 
-//aimKP = .09, aimKI = 0.0001, aimKD = 0,
+aimKP = 0.05, aimKI = 0, aimKD = 0, distanceKP = 0.08, distanceKI = 0.003, distanceKD = 0.0, 
+//aimKP = .09, aimKI = 0.0001, aimKD = 0, distanceKP = .1 distanceKD 0.01
 // ----------------------------------- PIDS for shooter -------------------------------------
 shooterKP = .001,
 

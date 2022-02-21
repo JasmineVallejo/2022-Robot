@@ -44,7 +44,7 @@ public class RobotContainer
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmSpeed);
 
   private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
-  private final encoderMove encoderMove = new encoderMove(driveSub, 3);
+  private final encoderMove encoderMove = new encoderMove(driveSub, 6);
 
   Joystick jasmine = new Joystick(Constants.jasmine);
   Joystick ish = new Joystick(Constants.ish);

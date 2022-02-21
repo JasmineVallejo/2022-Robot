@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
@@ -28,6 +29,10 @@ public class drive extends SubsystemBase {
   public void move(double leftSpeed,double rightSpeed){
     drive.tankDrive( -1 *leftSpeed,rightSpeed);
   
+    }
+
+    public void resetEncoders(){
+      leftFront.setSelectedSensorPosition(0);
     }
 
   
