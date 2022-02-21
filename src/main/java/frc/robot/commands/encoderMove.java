@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.drive;
@@ -26,23 +27,27 @@ public class encoderMove extends CommandBase {
     oldErrorDistance = 0;
     integralDistance = 0;
     pastTime = Timer.getFPGATimestamp();
+    driveSub.resetEncoders();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    errorDistance = td -  driveSub.encoderCurrentDistance();
-  proportionDistance = errorDistance * Constants.distanceKP;
+    errorDistance = (td -  driveSub.encoderCurrentDistance()) * -1;
+  proportionDistance = (errorDistance ) * Constants.distanceKP;
 
   double dt = Timer.getFPGATimestamp() - pastTime;
   pastTime = Timer.getFPGATimestamp();
 
-  integralDistance=+ (errorDistance * dt) * Constants.distanceKI;
+  integralDistance += (errorDistance * dt) * Constants.distanceKI;
   double dxDistance = errorDistance - oldErrorDistance;
   derivativeDistance = (dxDistance / dt) * Constants.distanceKD;
   oldErrorDistance = errorDistance;
 
   speed = proportionDistance + integralDistance + derivativeDistance;
+
+  SmartDashboard.putNumber("encoderDistance", driveSub.encoderCurrentDistance());
+  SmartDashboard.putNumber("encoderSpeed", speed);
 
   driveSub.move(speed, speed);
 
