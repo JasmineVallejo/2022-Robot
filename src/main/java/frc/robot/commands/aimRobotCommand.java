@@ -10,8 +10,8 @@ public class aimRobotCommand extends CommandBase {
   drive drive;
 
   double proportionAim, integralAim, derivativeAim, errorAim, oldErrorAim, speedAim,
-  proptionDistance, integralDistance, derivativeDistance, errorDistance, oldErrorDistance, speedDistance,
-  pastTime, ta, td;
+  proportionDistance, integralDistance, derivativeDistance, errorDistance, oldErrorDistance, speedDistance,
+  pastTime, td;
   
   public aimRobotCommand(drive driveSub, double targetDistance) {
     drive = driveSub;
@@ -22,6 +22,7 @@ public class aimRobotCommand extends CommandBase {
   @Override
   public void initialize() {
     oldErrorAim = 0;
+    oldErrorDistance = 0;
     integralAim = 0;
     integralDistance = 0;
     pastTime = Timer.getFPGATimestamp();
@@ -34,7 +35,7 @@ public class aimRobotCommand extends CommandBase {
   proportionAim = errorAim * Constants.aimKP;
 
   errorDistance = td -  drive.currentDistance();
-  proptionDistance = errorDistance * Constants.distanceKP;
+  proportionDistance = errorDistance * Constants.distanceKP;
 
   double dt = Timer.getFPGATimestamp() - pastTime;
   pastTime = Timer.getFPGATimestamp();
@@ -50,7 +51,7 @@ public class aimRobotCommand extends CommandBase {
   oldErrorDistance = errorDistance;
 
   speedAim = proportionAim + integralAim + derivativeAim;
-  speedDistance = proptionDistance + integralDistance + derivativeDistance;
+  speedDistance = proportionDistance + integralDistance + derivativeDistance;
   drive.move((-1 * speedAim) + speedDistance, speedAim + speedDistance);
 
   SmartDashboard.putNumber("Aim Error", errorAim);

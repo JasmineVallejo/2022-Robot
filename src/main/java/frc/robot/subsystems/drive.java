@@ -42,6 +42,8 @@ public class drive extends SubsystemBase {
 
   @Override
   public void periodic() {
+    leftPosition = leftFront.getSelectedSensorPosition(0);
+    rightPosition = rightFront.getSelectedSensorPosition(0);
     leftEncoderInFeet = leftPosition * Constants.kEncoderDistancePerPulse;
     rightEncoderInFeet = rightPosition * Constants.kEncoderDistancePerPulse;
 
@@ -79,6 +81,10 @@ public class drive extends SubsystemBase {
 
   public double currentDistance(){
     return distanceToTarget;
+  }
+
+  public double encoderCurrentDistance(){
+    return leftEncoderInFeet;
   }
 
   

@@ -4,6 +4,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.commands.aimRobotCommand;
 import frc.robot.commands.cascadeCommand;
+import frc.robot.commands.encoderMove;
 import frc.robot.commands.indexerCommand;
 import frc.robot.commands.rotaryArmsCommand;
 import frc.robot.commands.shooterCommand;
@@ -33,6 +34,7 @@ public class RobotContainer
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmSpeed);
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmSpeed);
   private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
+  private final encoderMove encoderMove = new encoderMove(driveSub, 3);
 
   Joystick jasmine = new Joystick(Constants.jasmine);
   Joystick ish = new Joystick(Constants.ish);
@@ -78,6 +80,6 @@ public class RobotContainer
 
  
   public Command getAutonomousCommand() {
-    return null;
+    return encoderMove;
   }
 }
