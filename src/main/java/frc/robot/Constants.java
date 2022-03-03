@@ -30,7 +30,10 @@ shooterButton = 6, shooterButton2 = 8,
 
 leftDriveAxis = 1, rightDriveAxis = 5, 
 
-aimRobotButton = 14,  aimRobotButton2 = 7;
+aimRobotButton = 14,  aimRobotButton2 = 7,
+
+//----------------------------------- Auto -----------------------------------------------
+tarmacDistance = 4;
 
 
 public static double
