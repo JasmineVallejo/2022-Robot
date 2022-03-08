@@ -10,18 +10,35 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class rotaryArms extends SubsystemBase {
+public class rotaryArms extends SubsystemBase 
+{
+
+
   WPI_TalonFX motor = new WPI_TalonFX(Constants.rotaryArmMotor);
   
-  public void rotateArms(double speed){
+
+
+
+  public void rotateArms(double speed)
+  {
     motor.set(speed);
   }
-  public rotaryArms() {
+
+
+
+
+  public rotaryArms() 
+  {
     motor.setNeutralMode(NeutralMode.Brake);
   }
 
+
+
+
+
   @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
+  public void periodic()
+  {
+   
   }
 }

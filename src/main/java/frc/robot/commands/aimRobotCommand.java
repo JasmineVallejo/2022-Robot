@@ -6,21 +6,34 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.subsystems.drive;
 
-public class aimRobotCommand extends CommandBase {
+
+
+public class aimRobotCommand extends CommandBase 
+{
+
   drive drive;
+
 
   double proportionAim, integralAim, derivativeAim, errorAim, oldErrorAim, speedAim,
   proportionDistance, integralDistance, derivativeDistance, errorDistance, oldErrorDistance, speedDistance,
   pastTime, td;
   
-  public aimRobotCommand(drive driveSub, double targetDistance) {
+
+
+
+  public aimRobotCommand(drive driveSub, double targetDistance) 
+  {
     drive = driveSub;
     td = targetDistance;
     addRequirements(driveSub);
   }
 
+
+
+
   @Override
-  public void initialize() {
+  public void initialize() 
+  {
     oldErrorAim = 0;
     oldErrorDistance = 0;
     integralAim = 0;
@@ -28,8 +41,12 @@ public class aimRobotCommand extends CommandBase {
     pastTime = Timer.getFPGATimestamp();
   }
 
+
+
+
   @Override
-  public void execute() {
+  public void execute() 
+  {
 
   errorAim = -1 * drive.angleOff();
   proportionAim = errorAim * Constants.aimKP;
@@ -37,11 +54,19 @@ public class aimRobotCommand extends CommandBase {
   errorDistance = td -  drive.currentDistance();
   proportionDistance = errorDistance * Constants.distanceKP;
 
+
+
   double dt = Timer.getFPGATimestamp() - pastTime;
   pastTime = Timer.getFPGATimestamp();
 
+
+
+
   integralAim += (errorAim * dt) * Constants.aimKI;
   integralDistance += (errorDistance * dt) * Constants.distanceKI;
+
+
+
 
   double dxAim = errorAim - oldErrorAim;//
   double dxDistance = errorDistance - oldErrorDistance;//
@@ -50,9 +75,14 @@ public class aimRobotCommand extends CommandBase {
   oldErrorAim = errorAim;
   oldErrorDistance = errorDistance;
 
+
+
+
   speedAim = proportionAim + integralAim + derivativeAim;
   speedDistance = proportionDistance + integralDistance + derivativeDistance;
   drive.move((  speedAim) + speedDistance, -1*speedAim + speedDistance);
+
+
 
   SmartDashboard.putNumber("Aim Error", errorAim);
   SmartDashboard.putNumber("Aim speed", speedAim);
@@ -61,13 +91,22 @@ public class aimRobotCommand extends CommandBase {
 
   }
 
-  // Called once the command ends or is interrupted.
+  
+
+
+
+
   @Override
-  public void end(boolean interrupted) {
+  public void end(boolean interrupted) 
+  {
     drive.move(0, 0);
   }
 
-  // Returns true when the command should end.
+  
+
+
+
+
   @Override
   public boolean isFinished() {
     return false;

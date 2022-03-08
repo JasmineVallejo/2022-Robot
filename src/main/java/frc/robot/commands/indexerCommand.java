@@ -1,38 +1,69 @@
-
-
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.indexer;
 
-public class indexerCommand extends CommandBase {
+
+
+public class indexerCommand extends CommandBase 
+{
+
+
   double speed;
   indexer indexerSub;
-  public indexerCommand(indexer indexer, double indexerSpeed) {
+
+
+
+
+  public indexerCommand(indexer indexer, double indexerSpeed) 
+  {
     speed = indexerSpeed;
     indexerSub = indexer;
     addRequirements(indexerSub);
-   
   }
 
   
+
+
+
   @Override
-  public void initialize() {}
+  public void initialize() 
+  {
+
+  }
 
   
+
+
+
   @Override
-  public void execute() {
+  public void execute() 
+  {
     indexerSub.move(speed);
   }
 
+
+
+
+
   
   @Override
-  public void end(boolean interrupted) {
+  public void end(boolean interrupted) 
+  {
     indexerSub.move(0);
   }
 
+
+
+
+
+
+
   @Override
-  public boolean isFinished() {
+  public boolean isFinished() 
+  {
     return false;
   }
+
+  
 }
