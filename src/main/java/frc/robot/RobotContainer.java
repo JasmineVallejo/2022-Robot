@@ -33,7 +33,7 @@ public class RobotContainer
   private final indexer indexerSub = new indexer();
   private final rotaryArms rotarySub = new rotaryArms();
 
-  DigitalInput limitSwitch  = new DigitalInput(0);
+  //DigitalInput limitSwitch  = new DigitalInput(0);
 
 
 

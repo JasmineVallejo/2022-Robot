@@ -136,7 +136,7 @@ kEncoderDistancePerPulse = ((Math.PI * 5.75)/(24576 * 9.375)),
 shooterMaxSpeed = 1, shooterCloseSpeed = .5, shooterMidSpeed = .6, 
 shooterFarSpeed = .7, shooterRevSpeed = .4,                                 
 
-cascadeUpSpeed = -.6, 
+cascadeUpSpeed = .6, 
 cascadeDownSpeed = -.6,
 
 driveSpeed =.7, 
