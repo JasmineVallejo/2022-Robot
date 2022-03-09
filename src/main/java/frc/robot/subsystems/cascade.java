@@ -42,9 +42,13 @@ public class cascade extends SubsystemBase
   public void cascadeLimit(boolean limitSwitchCheck)
   {
 
-    while(limitSwitch.get())
+    if(limitSwitch.get())
     {
-      motor.set(-.3);
+      motor.setNeutralMode(NeutralMode.Brake);
+    }
+    else
+    {
+      motor.set(.2);
     }
 
 

@@ -38,10 +38,10 @@ public class RobotContainer
 
 
   private final shooterCommand shooterMax = new shooterCommand(shooterSub, Constants.shooterMaxSpeed);
-  private final shooterCommand shooterReverse = new shooterCommand(shooterSub, -.4 * Constants.shooterRevSpeed);
-  private final shooterCommand shooterFar = new shooterCommand(shooterSub, .7 *Constants.shooterFarSpeed);
-  private final shooterCommand shooterMid = new shooterCommand(shooterSub, .6 *Constants.shooterMidSpeed);
-  private final shooterCommand shooterClose = new shooterCommand(shooterSub, .5 *Constants.shooterCloseSpeed);
+  private final shooterCommand shooterReverse = new shooterCommand(shooterSub, Constants.shooterRevSpeed);
+  private final shooterCommand shooterFar = new shooterCommand(shooterSub, Constants.shooterFarSpeed);
+  private final shooterCommand shooterMid = new shooterCommand(shooterSub, Constants.shooterMidSpeed);
+  private final shooterCommand shooterClose = new shooterCommand(shooterSub, Constants.shooterCloseSpeed);
 
 
   
@@ -56,7 +56,7 @@ public class RobotContainer
 
 
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmFowardSpeed);
-  private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, -1 * Constants.rotaryArmBackwardSpeed);
+  private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmBackwardSpeed);
 
 
   //private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
@@ -69,13 +69,13 @@ public class RobotContainer
   Joystick gio = new Joystick(Constants.gio);
 
 
-/*
+
 
   RunCommand gioMove = new RunCommand(() -> driveSub.move
   (Constants.driveSpeed*gio.getRawAxis(1),
   Constants.driveSpeed*gio.getRawAxis(5)),driveSub);
 
-*/
+
 
   /*RunCommand nathanMove = new RunCommand(() -> driveSub.move
   (Constants.driveSpeed*nathan.getRawAxis(Constants.leftDriveAxis),
@@ -128,7 +128,7 @@ public class RobotContainer
 
                                   /////////////////    Drive Controls      /////////////////////
                                   
-    //driveSub.setDefaultCommand(gioMove);
+    driveSub.setDefaultCommand(gioMove);
     
    
     
