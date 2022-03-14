@@ -62,10 +62,6 @@ public boolean limitSwitch()
     return limitSwitch.get();
   }
 
-
-
-
-
   @Override
   public void periodic() 
   {

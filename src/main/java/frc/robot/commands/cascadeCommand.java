@@ -43,7 +43,7 @@ public class cascadeCommand extends CommandBase
   public void execute() 
   {
     cascadeSub.cascadeMove(speed);
-    //cascadeSub.cascadeLimit(true);
+    cascadeSub.cascadeLimit(true);
   }
 
 
@@ -65,7 +65,7 @@ public class cascadeCommand extends CommandBase
   @Override
   public boolean isFinished() 
   {
-    //cascadeSub.cascadeLimit(false);
+    cascadeSub.cascadeLimit(false);
     return false;
   }
 

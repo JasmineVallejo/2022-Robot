@@ -70,11 +70,11 @@ public class RobotContainer
 
 
 
-
+/*
   RunCommand gioMove = new RunCommand(() -> driveSub.move
   (Constants.driveSpeed*gio.getRawAxis(1),
   Constants.driveSpeed*gio.getRawAxis(5)),driveSub);
-
+*/
 
 
   /*RunCommand nathanMove = new RunCommand(() -> driveSub.move
@@ -128,7 +128,7 @@ public class RobotContainer
 
                                   /////////////////    Drive Controls      /////////////////////
                                   
-    driveSub.setDefaultCommand(gioMove);
+    //driveSub.setDefaultCommand(gioMove);
     
    
     
@@ -179,15 +179,14 @@ public class RobotContainer
   public Command getAutonomousCommand() 
   {
 
-    ParallelCommandGroup flywheel = new ParallelCommandGroup(new shooterCommand(shooterSub, -.5).withTimeout(2),
-    new indexerCommand(indexerSub, Constants.indexerInSpeed).withTimeout(2));
+  ParallelCommandGroup flywheel = new ParallelCommandGroup(new shooterCommand(shooterSub, .64).withTimeout(2.5),
+    new indexerCommand(indexerSub, Constants.indexerInSpeed).withTimeout(2.5));
 
 
-    SequentialCommandGroup shooting = new SequentialCommandGroup(new shooterCommand(shooterSub, -.5).withTimeout(1.5), flywheel.withTimeout(3));
+    SequentialCommandGroup shooting = new SequentialCommandGroup( new shooterCommand(shooterSub, .64).withTimeout(3), flywheel.withTimeout(3.5));
     
-    SequentialCommandGroup auto = new SequentialCommandGroup(shooting, new WaitCommand(.1), new encoderMove(driveSub, (Constants.tarmacDistance+.15)));
+    SequentialCommandGroup auto = new SequentialCommandGroup(new encoderMove(driveSub, (-1 * Constants.initialMove)).withTimeout(2.5), shooting, new WaitCommand(.1));
     return auto;
-
-
+    //new encoderMove(driveSub, (Constants.tarmacDistance+.15)
   }
 }

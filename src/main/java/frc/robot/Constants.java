@@ -83,7 +83,7 @@ aimRobotButton2 = 7,                                            // aiming button
 
 ///////////////////////////             Auto                ////////////////////////////////////
 
-tarmacDistance = -5;
+tarmacDistance = -3, initialMove = 5;
 
 
 
@@ -106,7 +106,7 @@ hubHeight = 8.667, limelightHeight = 2.25, bottomAngle = 25, targetDistance = 10
 
 ////////////////////////                  PIDS for drive                ////////////////////////////////
 
-aimKP = 0.05, aimKI = 0, aimKD = 0, distanceKP = 0.18, distanceKI = 0.09, distanceKD = 0.07, 
+aimKP = 0.05, aimKI = 0, aimKD = 0, distanceKP = 0.38, distanceKI = 0.09, distanceKD = 0.07, 
 
 //aimKP = .09, aimKI = 0.0001, aimKD = 0, distanceKP = .1 distanceKD 0.01, dKP = .13
 
