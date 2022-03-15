@@ -139,7 +139,7 @@ shooterMaxSpeed = 1, shooterCloseSpeed = .5, shooterMidSpeed = .6,
 shooterFarSpeed = .7, shooterRevSpeed = .4,                                 
 
 cascadeUpSpeed = .6, cascadeUpSlowSpeed = .55, 
-cascadeDownSpeed = -.6, cascadeDownSlowSpeed = -.55,
+cascadeDownSpeed = -.6, cascadeDownSlowSpeed = .55,
 
 driveSpeed =.67, 
 

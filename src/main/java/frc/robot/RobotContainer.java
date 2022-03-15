@@ -107,15 +107,15 @@ public class RobotContainer
    
     JoystickButton cascadeDown = new JoystickButton(nathan,Constants.cascadeDownButton);
     cascadeDown.whileHeld(cascadeMoveDown);
-/*
+
 
     JoystickButton cascadeUpSlow = new JoystickButton(nathan, Constants.cascadeUpButton);
     cascadeUpSlow.whileHeld(cascadeMoveUp);
    
-    JoystickButton cascadeDownSlow = new JoystickButton(nathan,Constants.cascadeDownSlowButton);
+    JoystickButton cascadeDownSlow = new JoystickButton(nathan, Constants.cascadeDownSlowButton);
     cascadeDownSlow.whileHeld(cascadeMoveDownSlow);
 
-    */
+    
 
 
                         //////////////      Rotary Arms Controls    /////////////////
@@ -127,13 +127,13 @@ public class RobotContainer
     rotaryBackward.whileHeld(rotateBackward);
 
 
-/*
+
     JoystickButton rotaryForwardSlow = new JoystickButton(nathan, Constants.rotaryForwardSlowButton);
     rotaryForwardSlow.whileHeld(rotateForwardSlow);
 
     JoystickButton rotaryBackwardSlow = new JoystickButton(nathan, Constants.rotaryBackwardSlowButton);
     rotaryBackwardSlow.whileHeld(rotateBackwardSlow);
-    */
+    
     
 
 
