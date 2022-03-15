@@ -42,11 +42,14 @@ public class RobotContainer
   private final shooterCommand shooterFar = new shooterCommand(shooterSub, Constants.shooterFarSpeed);
   private final shooterCommand shooterMid = new shooterCommand(shooterSub, Constants.shooterMidSpeed);
   private final shooterCommand shooterClose = new shooterCommand(shooterSub, Constants.shooterCloseSpeed);
+  private final shooterCommand shooterOut = new shooterCommand(shooterSub, Constants.shooterOut);
 
 
   
   private final cascadeCommand cascadeMoveUp = new cascadeCommand( cascadeSub, Constants.cascadeUpSpeed);
   private final cascadeCommand cascadeMoveDown = new cascadeCommand(cascadeSub, Constants.cascadeDownSpeed);
+
+  private final cascadeCommand cascadeMoveDownSlow = new cascadeCommand(cascadeSub, Constants.cascadeDownSlowSpeed);
 
 
 
@@ -57,6 +60,9 @@ public class RobotContainer
 
   private final rotaryArmsCommand rotateForward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmFowardSpeed);
   private final rotaryArmsCommand rotateBackward = new rotaryArmsCommand(rotarySub, Constants.rotaryArmBackwardSpeed);
+
+  private final rotaryArmsCommand rotateForwardSlow = new rotaryArmsCommand(rotarySub, Constants.rotaryArmFowardSlowSpeed);
+  private final rotaryArmsCommand rotateBackwardSlow = new rotaryArmsCommand(rotarySub, Constants.rotaryArmBackwardSlowSpeed);
 
 
   //private final aimRobotCommand aimRobot = new aimRobotCommand(driveSub, Constants.targetDistance);
@@ -70,11 +76,11 @@ public class RobotContainer
 
 
 
-/*
+
   RunCommand gioMove = new RunCommand(() -> driveSub.move
   (Constants.driveSpeed*gio.getRawAxis(1),
   Constants.driveSpeed*gio.getRawAxis(5)),driveSub);
-*/
+
 
 
   /*RunCommand nathanMove = new RunCommand(() -> driveSub.move
@@ -101,10 +107,15 @@ public class RobotContainer
    
     JoystickButton cascadeDown = new JoystickButton(nathan,Constants.cascadeDownButton);
     cascadeDown.whileHeld(cascadeMoveDown);
+/*
 
+    JoystickButton cascadeUpSlow = new JoystickButton(nathan, Constants.cascadeUpButton);
+    cascadeUpSlow.whileHeld(cascadeMoveUp);
+   
+    JoystickButton cascadeDownSlow = new JoystickButton(nathan,Constants.cascadeDownSlowButton);
+    cascadeDownSlow.whileHeld(cascadeMoveDownSlow);
 
-
-    
+    */
 
 
                         //////////////      Rotary Arms Controls    /////////////////
@@ -114,7 +125,15 @@ public class RobotContainer
 
     JoystickButton rotaryBackward = new JoystickButton(nathan, Constants.rotaryBackwardButton);
     rotaryBackward.whileHeld(rotateBackward);
-    
+
+
+/*
+    JoystickButton rotaryForwardSlow = new JoystickButton(nathan, Constants.rotaryForwardSlowButton);
+    rotaryForwardSlow.whileHeld(rotateForwardSlow);
+
+    JoystickButton rotaryBackwardSlow = new JoystickButton(nathan, Constants.rotaryBackwardSlowButton);
+    rotaryBackwardSlow.whileHeld(rotateBackwardSlow);
+    */
     
 
 
@@ -128,7 +147,7 @@ public class RobotContainer
 
                                   /////////////////    Drive Controls      /////////////////////
                                   
-    //driveSub.setDefaultCommand(gioMove);
+    driveSub.setDefaultCommand(gioMove);
     
    
     
@@ -161,8 +180,9 @@ public class RobotContainer
     JoystickButton indexerMaxGio = new JoystickButton(gio, Constants.IndexerInMaxGio);
     indexerMaxGio.whileHeld(indexerInMax);
 
+    //JoystickButton indexerOutGio = new JoystickButton(gio, Constants.IndexerOutGio);
     JoystickButton indexerOutGio = new JoystickButton(gio, Constants.IndexerOutGio);
-    indexerOutGio.whileHeld(indexerOut);
+    indexerOutGio.whileHeld(indexerOut).whileHeld(shooterOut);
     
 
     configureButtonBindings();
@@ -179,11 +199,11 @@ public class RobotContainer
   public Command getAutonomousCommand() 
   {
 
-  ParallelCommandGroup flywheel = new ParallelCommandGroup(new shooterCommand(shooterSub, .64).withTimeout(2.5),
+  ParallelCommandGroup flywheel = new ParallelCommandGroup(new shooterCommand(shooterSub, .55).withTimeout(2.5),
     new indexerCommand(indexerSub, Constants.indexerInSpeed).withTimeout(2.5));
 
 
-    SequentialCommandGroup shooting = new SequentialCommandGroup( new shooterCommand(shooterSub, .64).withTimeout(3), flywheel.withTimeout(3.5));
+    SequentialCommandGroup shooting = new SequentialCommandGroup( new shooterCommand(shooterSub, .62).withTimeout(3), flywheel.withTimeout(3.5));
     
     SequentialCommandGroup auto = new SequentialCommandGroup(new encoderMove(driveSub, (-1 * Constants.initialMove)).withTimeout(2.5), shooting, new WaitCommand(.1));
     return auto;

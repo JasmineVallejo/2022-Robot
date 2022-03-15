@@ -50,8 +50,10 @@ indexMotor = 20,                                                     // indexer 
                     /////////////           Nathan Controls              ///////////////
 
 rotaryForwardButton = 8, rotaryBackwardButton = 6,              // rotary arms buttons 
+rotaryForwardSlowButton = 11, rotaryBackwardSlowButton = 12,
 
 cascadeDownButton = 5, cascadeUpButton = 7,                     // cascade buttons
+cascadeDownSlowButton = 14,
 
 
 
@@ -83,7 +85,7 @@ aimRobotButton2 = 7,                                            // aiming button
 
 ///////////////////////////             Auto                ////////////////////////////////////
 
-tarmacDistance = -3, initialMove = 5;
+tarmacDistance = -3, initialMove = 6;
 
 
 
@@ -136,14 +138,20 @@ kEncoderDistancePerPulse = ((Math.PI * 5.75)/(24576 * 9.375)),
 shooterMaxSpeed = 1, shooterCloseSpeed = .5, shooterMidSpeed = .6, 
 shooterFarSpeed = .7, shooterRevSpeed = .4,                                 
 
-cascadeUpSpeed = .6, 
-cascadeDownSpeed = -.6,
+cascadeUpSpeed = .6, cascadeUpSlowSpeed = .55, 
+cascadeDownSpeed = -.6, cascadeDownSlowSpeed = -.55,
 
-driveSpeed =.7, 
+driveSpeed =.67, 
 
 indexerSpeedMax = .8, indexerInSpeed = .5, indexerOutSpeed = -.5,
 
-rotaryArmFowardSpeed = .5, rotaryArmBackwardSpeed = -.5;
+rotaryArmFowardSpeed = .5, rotaryArmBackwardSpeed = -.5,
+rotaryArmFowardSlowSpeed = .45, rotaryArmBackwardSlowSpeed = -.45,
+
+
+shooterOut = -.5;
+
+
 
 
 }
